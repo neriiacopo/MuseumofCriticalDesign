@@ -1,0 +1,9 @@
+# Rhino
+newmtl FUTURE_of_plants_promotion
+Ka 0.0000 0.0000 0.0000
+Kd 1.0000 1.0000 1.0000
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0.0000
+map_Kd FUTURE_of_plants_promotion.png
