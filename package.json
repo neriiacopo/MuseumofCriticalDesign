@@ -1,7 +1,7 @@
 {
-    "name": "nex-ui-react",
+    "name": "museum_critical_design",
     "version": "1.0.0",
-    "description": "first implementation of the NEX-UI via React and React Fiber",
+    "description": "museum of critical design",
     "type": "module",
     "homepage": "./",
     "scripts": {
@@ -10,36 +10,22 @@
         "deploy": "gh-pages -d dist"
     },
     "devDependencies": {
-        "@timohausmann/quadtree-js": "^1.2.5",
         "@vitejs/plugin-react": "3.0",
         "gh-pages": "^5.0.0",
         "vite": "^4.0.4"
     },
-    "author": "Iacopo Neri - Noumena",
+    "author": "Iacopo Neri",
     "license": "ISC",
     "dependencies": {
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
-        "@mars3d/heatmap.js": "^2.0.7",
-        "@mui/material": "^5.11.11",
-        "@mui/x-date-pickers": "^6.0.0",
         "@react-three/drei": "9.54.2",
         "@react-three/fiber": "8.10.1",
-        "chart.js": "^4.3.0",
-        "chartjs-chart-pcp": "^4.2.0",
-        "dayjs": "^1.11.7",
-        "javascript-color-gradient": "^2.4.4",
-        "plotly.js": "^2.22.0",
         "react": "18.2.0",
-        "react-chartjs-2": "^5.2.0",
         "react-dom": "18.2.0",
-        "react-plotly.js": "^2.6.0",
         "rollup": "^3.20.2",
-        "semantic-ui-css": "2.5.0",
-        "semantic-ui-react": "2.1.4",
         "suspend-react": "^0.0.9",
         "three": "0.148.0",
-        "vite-plugin-top-level-await": "^1.3.0",
-        "zustand": "4.3"
+        "vite-plugin-top-level-await": "^1.3.0"
     }
 }

@@ -10,6 +10,7 @@ import { useEffect, useRef } from "react";
 import Room from "./Room.jsx";
 import Poster from "./Poster.jsx";
 import Design from "./Design.jsx";
+import * as THREE from "three";
 
 export default function Scene() {
     const cameraRef = useRef();
@@ -34,40 +35,35 @@ export default function Scene() {
                     makeDefault
                     maxPolarAngle={Math.PI / 2}
                     target={[0, 0, 0]}
-                    minZoom={40}
-                    maxZoom={80}
+                    minZoom={30}
+                    maxZoom={100}
                 />
                 <ambientLight intensity={0.3} />
-                <spotLight
-                    position={[1, 6, 1.5]}
-                    angle={0.2}
-                    penumbra={1}
-                    intensity={2.5}
-                    castShadow
-                    shadow-mapSize={[2048, 2048]}
-                />
-                <Room />
-                <Poster
-                    objUrl="/models/poster_1.obj"
-                    mtlUrl="/models/poster_1.mtl"
-                />
-                )
-                <Design objPath="/models/design_1.obj" />
-                <Poster
-                    objUrl="/models/poster_2.obj"
-                    mtlUrl="/models/poster_2.mtl"
-                />
-                <Design objPath="/models/design_2.obj" />
-                <Poster
-                    objUrl="/models/poster_3.obj"
-                    mtlUrl="/models/poster_3.mtl"
-                />
-                <Design objPath="/models/design_3.obj" />
-                <Poster
-                    objUrl="/models/poster_4.obj"
-                    mtlUrl="/models/poster_4.mtl"
-                />
-                <Design objPath="/models/design_4.obj" />
+
+                <group rotation={[0, 4.5, 0]}>
+                    <Room />
+                    <Poster
+                        objUrl="/models/poster_1.obj"
+                        mtlUrl="/models/poster_1.mtl"
+                    />
+                    )
+                    <Design objPath="/models/design_1.obj" />
+                    <Poster
+                        objUrl="/models/poster_2.obj"
+                        mtlUrl="/models/poster_2.mtl"
+                    />
+                    <Design objPath="/models/design_2.obj" />
+                    <Poster
+                        objUrl="/models/poster_3.obj"
+                        mtlUrl="/models/poster_3.mtl"
+                    />
+                    <Design objPath="/models/design_3.obj" />
+                    <Poster
+                        objUrl="/models/poster_4.obj"
+                        mtlUrl="/models/poster_4.mtl"
+                    />
+                    <Design objPath="/models/design_4.obj" />
+                </group>
             </Bounds>
         </>
     );
