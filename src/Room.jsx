@@ -3,8 +3,8 @@ import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import * as THREE from "three";
 
 export default function Room() {
-    const room = useLoader(OBJLoader, "/models/basemodel.obj");
-    const material = new THREE.MeshNormalMaterial({ color: "#d7d788" });
+    const room = useLoader(OBJLoader, "./models/basemodel.obj");
+    const material = new THREE.MeshNormalMaterial();
     room.children[0].material = material;
 
     return (

@@ -16,6 +16,29 @@ export default function Scene() {
     const cameraRef = useRef();
     const orbitRef = useRef();
 
+    const paths = [
+        {
+            posterObj: "./models/poster_1.obj",
+            posterMtl: "./models/poster_1.mtl",
+            designObj: "./models/design_1.obj",
+        },
+        {
+            posterObj: "./models/poster_2.obj",
+            posterMtl: "./models/poster_2.mtl",
+            designObj: "./models/design_2.obj",
+        },
+        {
+            posterObj: "./models/poster_3.obj",
+            posterMtl: "./models/poster_3.mtl",
+            designObj: "./models/design_3.obj",
+        },
+        {
+            posterObj: "./models/poster_4.obj",
+            posterMtl: "./models/poster_4.mtl",
+            designObj: "./models/design_4.obj",
+        },
+    ];
+
     return (
         <>
             <Bounds
@@ -38,31 +61,25 @@ export default function Scene() {
                     minZoom={30}
                     maxZoom={100}
                 />
-                <ambientLight intensity={0.3} />
+                <ambientLight intensity={0.6} />
 
                 <group rotation={[0, 4.5, 0]}>
                     <Room />
-                    <Poster
-                        objUrl="/models/poster_1.obj"
-                        mtlUrl="/models/poster_1.mtl"
-                    />
-                    )
-                    <Design objPath="/models/design_1.obj" />
-                    <Poster
-                        objUrl="/models/poster_2.obj"
-                        mtlUrl="/models/poster_2.mtl"
-                    />
-                    <Design objPath="/models/design_2.obj" />
-                    <Poster
-                        objUrl="/models/poster_3.obj"
-                        mtlUrl="/models/poster_3.mtl"
-                    />
-                    <Design objPath="/models/design_3.obj" />
-                    <Poster
-                        objUrl="/models/poster_4.obj"
-                        mtlUrl="/models/poster_4.mtl"
-                    />
-                    <Design objPath="/models/design_4.obj" />
+
+                    {paths.map(function f(
+                        { posterObj, posterMtl, designObj },
+                        index
+                    ) {
+                        return (
+                            <group key={index}>
+                                <Poster
+                                    objUrl={posterObj}
+                                    mtlUrl={posterMtl}
+                                />
+                                <Design objPath={designObj} />
+                            </group>
+                        );
+                    })}
                 </group>
             </Bounds>
         </>
