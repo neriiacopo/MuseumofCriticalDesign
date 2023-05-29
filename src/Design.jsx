@@ -20,7 +20,7 @@ export default function Design({ objPath }) {
     const ref = useRef();
     useFrame((_, delta) => {
         ref.current.position.set(centroid.x, centroid.y, centroid.z);
-        ref.current.rotation.y += 0.05;
+        ref.current.rotation.y += 0.3 * delta;
     });
 
     return (

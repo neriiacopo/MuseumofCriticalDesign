@@ -6,6 +6,7 @@ import {
 } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
+import { Suspense } from "react";
 
 import Room from "./Room.jsx";
 import Poster from "./Poster.jsx";
@@ -41,47 +42,50 @@ export default function Scene() {
 
     return (
         <>
-            <Bounds
-                fit
-                clip
-                observe
-                damping={6}
-                margin={1}
-            >
-                <OrthographicCamera
-                    ref={cameraRef}
-                    makeDefault
-                    position={[2, 10, 5]}
-                />
-                <OrbitControls
-                    ref={orbitRef}
-                    makeDefault
-                    maxPolarAngle={Math.PI / 2}
-                    target={[0, 0, 0]}
-                    minZoom={30}
-                    maxZoom={100}
-                />
-                <ambientLight intensity={0.6} />
+            <Suspense>
+                <Bounds
+                    fit
+                    clip
+                    observe
+                    damping={6}
+                    margin={1}
+                >
+                    <OrthographicCamera
+                        ref={cameraRef}
+                        makeDefault
+                        position={[2, 10, 5]}
+                    />
+                    <OrbitControls
+                        ref={orbitRef}
+                        makeDefault
+                        maxPolarAngle={Math.PI / 2}
+                        target={[0, 0, 0]}
+                        minZoom={30}
+                        maxZoom={100}
+                        enablePan={false}
+                    />
+                    <ambientLight intensity={0.6} />
 
-                <group rotation={[0, 4.5, 0]}>
-                    <Room />
+                    <group rotation={[0, 4.5, 0]}>
+                        <Room />
 
-                    {paths.map(function f(
-                        { posterObj, posterMtl, designObj },
-                        index
-                    ) {
-                        return (
-                            <group key={index}>
-                                <Poster
-                                    objUrl={posterObj}
-                                    mtlUrl={posterMtl}
-                                />
-                                <Design objPath={designObj} />
-                            </group>
-                        );
-                    })}
-                </group>
-            </Bounds>
+                        {paths.map(function f(
+                            { posterObj, posterMtl, designObj },
+                            index
+                        ) {
+                            return (
+                                <group key={index}>
+                                    <Poster
+                                        objUrl={posterObj}
+                                        mtlUrl={posterMtl}
+                                    />
+                                    <Design objPath={designObj} />
+                                </group>
+                            );
+                        })}
+                    </group>
+                </Bounds>
+            </Suspense>
         </>
     );
 }
